@@ -1,27 +1,52 @@
-# TikeramaFront
+<p align="center"><a href="https://www.tikerama.com" target="_blank"><img src="https://www.tikerama.com/assets/img/brand/logo-tikerama.png" width="400" alt="Laravel Logo"></a></p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+# Documentation de l'API de billetterie événementielle
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Ce projet implémente un système permettant aux utilisateurs de faire une demande d'accès à une API via une interface web
+développée avec Angular. Les demandes sont traitées et stockées côté serveur avec Laravel.
 
-## Code scaffolding
+![alt text](tikerama.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Configuration et Installation
 
-## Build
+### Prérequis
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Node.js et npm
+- Angular CLI
 
-## Running unit tests
+### Étapes d'installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
 
-## Running end-to-end tests
+**Frontend (Angular)**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+   ```bash
+   # Naviguer vers le dossier frontend
+   cd dossier_du_projet
 
-## Further help
+   # Installer les dépendances
+   npm install
+   
+   # Lancer le serveur laravel sur votre address IP
+   
+   #remplacer l'url   private apiUrl = 'http://192.168.46.187:8000/api/v1/tokens/create' par votre adresse IP dans le service ApiAccessRequestService
+ 
+   # Lancer le serveur de développement
+   ng serve
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Utilisation
+
+1. Accédez à l'application Angular via `http://localhost:4200`
+2. Remplissez le formulaire de demande d'accès à l'API
+3. Soumettez le formulaire
+4. Un message de succès s'affichera si la demande est correctement enregistrée
+
+## API Endpoints
+
+- POST `/api/v1/tokens/create`
+  - Corps de la requête : `{ name, surname, entreprise, email, city, address }`
+  - Réponse de succès : `{ message: 'Une clé d'accès à l'API vous a été envoyée par email.' }`
+
